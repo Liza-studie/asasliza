@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Ulang Tahun - Liza Aulia Hanafi</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            peach: "#fbceb7",
+            berry: "#d86d9c",
+            berryDark: "#b8527f",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- AOS Scroll Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --color-peach: #fbceb7;
+      --color-berry: #d86d9c;
+      --color-berry-dark: #b8527f;
+      --color-bg-warm: #fff8f4;
+      --color-text-dark: #1e293b;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100dvh;
+      overflow-x: clip;
+      background-color: var(--color-bg-warm);
+      background-image:
+        radial-gradient(circle at 14% 16%, rgba(251, 206, 183, 0.72) 0%, rgba(251, 206, 183, 0) 42%),
+        radial-gradient(circle at 86% 24%, rgba(216, 109, 156, 0.22) 0%, rgba(216, 109, 156, 0) 42%),
+        radial-gradient(circle at 22% 82%, rgba(216, 109, 156, 0.16) 0%, rgba(216, 109, 156, 0) 45%),
+        radial-gradient(circle at 84% 84%, rgba(251, 206, 183, 0.65) 0%, rgba(251, 206, 183, 0) 45%),
+        radial-gradient(rgba(216, 109, 156, 0.12) 1px, transparent 1px);
+      background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        22px 22px;
+      background-attachment: fixed;
+      color: var(--color-text-dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    .font-display {
+      font-family: 'Fredoka', sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    p,
+    span,
+    div,
+    a,
+    button {
+      overflow-wrap: anywhere;
+    }
+
+    #cover-section {
+      min-height: 100dvh;
+      width: 100%;
+      max-width: 100%;
+      background-color: #fdf3ee;
+      background-image:
+        radial-gradient(circle at 18% 20%, rgba(251, 206, 183, 0.85) 0%, rgba(251, 206, 183, 0) 45%),
+        radial-gradient(circle at 82% 78%, rgba(216, 109, 156, 0.28) 0%, rgba(216, 109, 156, 0) 45%),
+        radial-gradient(rgba(216, 109, 156, 0.12) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 20px 20px;
+      transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.85s ease;
+    }
+
+    #cover-section.cover-hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .envelope-card {
+      background: linear-gradient(180deg, #fffdfb 0%, #fff4ee 100%);
+      border: 2px solid rgba(216, 109, 156, 0.35);
+      box-shadow:
+        0 22px 45px -12px rgba(216, 109, 156, 0.28),
+        inset 0 0 0 6px rgba(251, 206, 183, 0.45);
+    }
+
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 110px;
+      background: linear-gradient(135deg, rgba(251, 206, 183, 0.55) 0%, rgba(216, 109, 156, 0.18) 100%);
+      clip-path: polygon(0 0, 50% 72%, 100% 0);
+      pointer-events: none;
+    }
+
+    .cover-ornament {
+      position: absolute;
+      z-index: 20;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--color-berry-dark);
+      background: #ffffff;
+      border: 2px solid var(--color-peach);
+      border-radius: 9999px;
+      width: 2.35rem;
+      height: 2.35rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(216, 109, 156, 0.18);
+      pointer-events: none;
+    }
+
+    .ornament-tl {
+      top: -0.85rem;
+      left: -0.5rem;
+      transform: rotate(-12deg);
+    }
+
+    .ornament-tr {
+      top: -0.85rem;
+      right: -0.5rem;
+      transform: rotate(12deg);
+    }
+
+    .ornament-bl {
+      bottom: -0.85rem;
+      left: -0.5rem;
+      transform: rotate(10deg);
+    }
+
+    .ornament-br {
+      bottom: -0.85rem;
+      right: -0.5rem;
+      transform: rotate(-10deg);
+    }
+
+    .guest-card-glass {
+      background: rgba(251, 206, 183, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(216, 109, 156, 0.35);
+    }
+
+    .theme-card {
+      width: 100%;
+      max-width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 2px solid rgba(251, 206, 183, 0.9);
+      box-shadow: 0 12px 28px -8px rgba(216, 109, 156, 0.16);
+    }
+
+    .gallery-img {
+      cursor: pointer;
+    }
+
+    .btn-berry {
+      background-color: var(--color-berry);
+      color: #ffffff;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .btn-berry:hover {
+      background-color: var(--color-berry-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-berry:active {
+      transform: scale(0.97);
+    }
+
+    @keyframes spinSlow {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .audio-spinning {
+      animation: spinSlow 6s linear infinite;
+    }
+
+    #guestbook-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #guestbook-list::-webkit-scrollbar-track {
+      background: rgba(251, 206, 183, 0.25);
+      border-radius: 9999px;
+    }
+
+    #guestbook-list::-webkit-scrollbar-thumb {
+      background: var(--color-berry);
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 414px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      #cover-section {
+        padding: 1rem;
+      }
+
+      .envelope-card {
+        padding: 3.5rem 1rem 1.75rem;
+      }
+
+      .envelope-flap {
+        height: 82px;
+      }
+
+      .cover-ornament {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .countdown-grid {
+        gap: 0.375rem;
+      }
+
+      .countdown-card {
+        padding: 0.6rem 0.25rem;
+      }
+
+      .countdown-number {
+        font-size: 1.35rem;
+      }
+
+      #audio-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased overflow-hidden" id="main-body">
+
+  <!-- Lagu Intro Langsung Terpasang (Letakkan file lagu.mp4 sejajar dengan index.html) -->
+  <audio
+    id="bg-music"
+    src="lagu.mp4"
+    data-fallback-src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=happy-birthday-to-you-piano-version-13976.mp3"
+    preload="auto"
+  ></audio>
+
+  <!-- Tombol Kontrol Audio Melayang -->
+  <button
+    id="audio-toggle"
+    type="button"
+    aria-label="Kontrol Musik"
+    class="fixed bottom-5 right-5 z-40 hidden btn-berry w-12 h-12 rounded-full shadow-lg flex items-center justify-center border-2 border-peach"
+  >
+    <span id="audio-icon" class="text-lg">🎵</span>
+  </button>
+
+  <!-- 1. SAMPUL UNDANGAN (COVER BENTUK AMPLOP / KARTU) -->
+  <section
+    id="cover-section"
+    class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 sm:p-6 text-center"
+  >
+    <div class="envelope-wrapper relative w-full max-w-md mx-auto">
+      <span class="cover-ornament ornament-tl" aria-hidden="true">🎀</span>
+      <span class="cover-ornament ornament-tr" aria-hidden="true">✦</span>
+      <span class="cover-ornament ornament-bl" aria-hidden="true">✦</span>
+      <span class="cover-ornament ornament-br" aria-hidden="true">🎂</span>
+
+      <div class="envelope-card relative rounded-3xl px-5 py-8 sm:px-8 sm:py-10 overflow-hidden">
+        <div class="envelope-flap" aria-hidden="true"></div>
+
+        <div class="relative z-10 flex flex-col items-center">
+          <p class="uppercase tracking-widest text-xs sm:text-sm font-bold mb-2 text-berryDark">
+            You Are Invited To
+          </p>
+          <h1 class="text-3xl sm:text-5xl font-bold mb-2 text-slate-900">
+            Sweet Seventeen Party
+          </h1>
+          <p class="text-lg sm:text-2xl font-display mb-6 text-berryDark">
+            Liza Aulia Hanafi
+          </p>
+
+          <div class="guest-card-glass rounded-2xl p-4 sm:p-5 max-w-xs w-full mb-7">
+            <p class="text-xs uppercase tracking-wider mb-1 font-semibold text-slate-700">
+              Kepada Yth. Bapak/Ibu/Saudara/i:
+            </p>
+            <p id="guest-name" class="text-lg sm:text-xl font-bold break-words text-slate-900">
+              Tamu Undangan
+            </p>
+          </div>
+
+          <button
+            id="open-invitation"
+            type="button"
+            class="btn-berry font-bold px-7 sm:px-8 py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition"
+          >
+            Buka Undangan
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTEN UTAMA -->
+  <main class="w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-12 pb-24 space-y-14 sm:space-y-16">
+
+    <!-- TAMPILAN UNDANGAN UTAMA -->
+    <div id="invitation-view" class="space-y-14 sm:space-y-16">
+
+      <!-- 2. INFORMASI ACARA & COUNTDOWN -->
+      <section class="text-center space-y-6" data-aos="fade-up">
+        <span class="inline-block bg-peach text-slate-900 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+          Save The Date
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">
+          Waktu &amp; Lokasi Acara
+        </h2>
+
+        <div class="theme-card p-5 sm:p-6 rounded-3xl space-y-3">
+          <p class="text-lg font-bold text-berry">Sabtu, 20 Desember 2026</p>
+          <p class="text-sm text-slate-600">Pukul 18.30 WIB – Selesai</p>
+          <hr class="border-peach/60" />
+          <p class="font-semibold text-slate-800">Rumah Liza</p>
+          <p class="text-sm text-slate-500">Kp. Cilalung</p>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-grid grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+          <div class="countdown-card theme-card p-3 rounded-2xl">
+            <span id="days" class="countdown-number block text-2xl sm:text-3xl font-bold text-berry">00</span>
+            <span class="text-xs text-slate-500 font-medium">Hari</span>
+          </div>
+          <div class="countdown-card theme-card p-3 rounded-2xl">
+            <span id="hours" class="countdown-number block text-2xl sm:text-3xl font-bold text-berry">00</span>
+            <span class="text-xs text-slate-500 font-medium">Jam</span>
+          </div>
+          <div class="countdown-card theme-card p-3 rounded-2xl">
+            <span id="minutes" class="countdown-number block text-2xl sm:text-3xl font-bold text-berry">00</span>
+            <span class="text-xs text-slate-500 font-medium">Menit</span>
+          </div>
+          <div class="countdown-card theme-card p-3 rounded-2xl">
+            <span id="seconds" class="countdown-number block text-2xl sm:text-3xl font-bold text-berry">00</span>
+            <span class="text-xs text-slate-500 font-medium">Detik</span>
+          </div>
+        </div>
+
+        <!-- Tombol Simpan ke Kalender -->
+        <div>
+          <a
+            id="calendar-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 btn-berry text-sm font-semibold px-5 sm:px-6 py-3 rounded-full shadow-md"
+          >
+            📅 Simpan ke Google Calendar
+          </a>
+        </div>
+      </section>
+
+      <!-- 3. NAVIGATOR LOKASI & AMPLOP DIGITAL -->
+      <section class="space-y-6" data-aos="fade-up">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-900">
+          Lokasi &amp; Kado Digital
+        </h2>
+
+        <!-- Google Maps Embed -->
+        <div class="theme-card rounded-3xl overflow-hidden">
+          <iframe
+            src="https://maps.google.com/maps?q=Kp.%20Cilalung&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            class="w-full h-60 sm:h-64 border-0 block"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="p-4 text-center bg-peach/20">
+            <a
+              href="https://maps.app.goo.gl/i2Bq2WuccV8qS2fD6?g_st=aw"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block text-sm font-bold text-berry hover:text-berryDark hover:underline"
+            >
+              Buka di Aplikasi Google Maps →
+            </a>
+          </div>
+        </div>
+
+        <!-- Kado Digital / Copy to Clipboard -->
+        <div class="theme-card p-5 sm:p-6 rounded-3xl text-center space-y-3">
+          <p class="text-sm text-slate-600">
+            Bagi yang ingin mengirimkan tanda kasih / kado:
+          </p>
+          <div class="bg-peach/35 p-4 sm:p-5 rounded-2xl inline-block w-full max-w-sm border border-peach">
+            <p class="text-xs font-bold text-slate-600 uppercase">
+              Bank BCA / E-Wallet
+            </p>
+            <p id="account-number" class="text-lg sm:text-xl font-bold tracking-wider text-slate-900 my-1">
+              1234567890
+            </p>
+            <p class="text-xs text-slate-700 mb-3">
+              a.n. Liza Aulia Hanafi
+            </p>
+            <button
+              id="copy-btn"
+              type="button"
+              class="btn-berry text-xs font-bold px-5 py-2.5 rounded-full shadow-sm"
+            >
+              Salin Nomor Rekening
+            </button>
+          </div>
+          <p id="copy-toast" class="text-xs font-semibold text-emerald-600 hidden">
+            ✅ Nomor berhasil disalin ke clipboard!
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. GALERI FOTO -->
+      <section class="space-y-6" data-aos="fade-up">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-900">
+          Galeri Momen
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div class="theme-card overflow-hidden rounded-2xl aspect-square bg-peach/30" data-aos="zoom-in" data-aos-delay="100">
+            <img
+              src="https://theballoonwala.com/cdn/shop/files/Birthday_balloon_ring_decoration_on_terrace.png?v=1780926802&width=1946"
+              data-local="assets/img/foto1.jpg"
+              alt="Dekorasi Balon & Lampu Ulang Tahun"
+              class="gallery-img w-full h-full object-cover hover:scale-105 transition duration-500"
+            />
+          </div>
+          <div class="theme-card overflow-hidden rounded-2xl aspect-square bg-peach/30" data-aos="zoom-in" data-aos-delay="200">
+            <img
+              src="http://smartyhadaparty.com/cdn/shop/articles/Nenaslovljeni_dizajn_ede0d8b5-d5cb-4264-963a-88ecdd7f81c6.png?v=1747767527"
+              data-local="assets/img/foto2.jpg"
+              alt="Meja Dessert Pastel Ulang Tahun"
+              class="gallery-img w-full h-full object-cover hover:scale-105 transition duration-500"
+            />
+          </div>
+          <div class="theme-card overflow-hidden rounded-2xl aspect-square bg-peach/30" data-aos="zoom-in" data-aos-delay="300">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/069/202/634/large_2x/birthday-party-celebration-with-happy-friends-cheering-around-cake-with-candles-young-woman-in-pink-beanie-smiling-as-confetti-falls-during-festive-gathering-indoors-photo.jpg"
+              data-local="assets/img/foto3.jpg"
+              alt="Perayaan Ulang Tahun Bersama Teman"
+              class="gallery-img w-full h-full object-cover hover:scale-105 transition duration-500"
+            />
+          </div>
+          <div class="theme-card overflow-hidden rounded-2xl aspect-square bg-peach/30" data-aos="zoom-in" data-aos-delay="400">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/070/586/459/non_2x/happy-birthday-cake-with-lit-candles-and-blue-balloons-for-a-festive-celebration-photo.jpeg"
+              data-local="assets/img/foto4.jpg"
+              alt="Kue Ulang Tahun & Balon"
+              class="gallery-img w-full h-full object-cover hover:scale-105 transition duration-500"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. FORMULIR RSVP & BUKU TAMU -->
+      <section class="space-y-6" data-aos="fade-up">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-slate-900">
+          Konfirmasi Kehadiran &amp; Ucapan
+        </h2>
+
+        <form id="rsvp-form" class="theme-card p-5 sm:p-6 rounded-3xl space-y-4">
+          <input type="hidden" id="rsvp-guest-id" value="" />
+
+          <div>
+            <label for="rsvp-name" class="block text-xs font-bold uppercase text-slate-600 mb-1">
+              Nama Tamu
+            </label>
+            <input
+              type="text"
+              id="rsvp-name"
+              required
+              placeholder="Masukkan nama Anda"
+              class="w-full min-w-0 px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="rsvp-status" class="block text-xs font-bold uppercase text-slate-600 mb-1">
+              Status Kehadiran
+            </label>
+            <select
+              id="rsvp-status"
+              required
+              class="w-full min-w-0 px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm bg-white"
+            >
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rsvp-message" class="block text-xs font-bold uppercase text-slate-600 mb-1">
+              Ucapan &amp; Doa
+            </label>
+            <textarea
+              id="rsvp-message"
+              rows="3"
+              required
+              placeholder="Tuliskan ucapan selamat..."
+              class="w-full min-w-0 px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full btn-berry font-bold py-3 rounded-xl shadow-sm"
+          >
+            Kirim Ucapan
+          </button>
+        </form>
+
+        <!-- Daftar Buku Tamu -->
+        <div id="guestbook-list" class="space-y-3 max-h-96 overflow-y-auto pr-1"></div>
+
+        <!-- Tombol Khusus Admin untuk Membuka Daftar Tamu Undangan -->
+        <div class="pt-2 text-center">
+          <button
+            id="open-guest-manager-btn"
+            type="button"
+            class="inline-flex items-center justify-center gap-2 theme-card px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-berry hover:text-berryDark hover:bg-peach/20 transition"
+          >
+            🔒 Kelola Daftar Tamu Undangan (Admin)
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- 6. PANEL DAFTAR TAMU UNDANGAN (HANYA SETELAH LOLOS PIN ADMIN) -->
+    <section id="guest-manager-view" class="hidden space-y-6">
+      <div class="theme-card p-5 sm:p-7 rounded-3xl space-y-5">
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">
+            Daftar Tamu Undangan
+          </h2>
+          <div class="flex items-center gap-3">
+            <button
+              id="lock-admin-btn"
+              type="button"
+              class="text-xs font-bold px-3 py-1.5 rounded-full bg-rose-100 text-rose-700 hover:bg-rose-200 transition"
+            >
+              Kunci Admin
+            </button>
+            <button
+              id="back-to-invitation-btn"
+              type="button"
+              class="text-xs sm:text-sm font-bold text-berry hover:text-berryDark hover:underline"
+            >
+              ← Ke Halaman Undangan
+            </button>
+          </div>
+        </div>
+
+        <form id="guest-manager-form" class="space-y-4">
+          <div>
+            <label for="manager-guest-name" class="block text-xs font-bold uppercase text-slate-600 mb-1">
+              Nama Tamu
+            </label>
+            <input
+              type="text"
+              id="manager-guest-name"
+              required
+              placeholder="Contoh: Nadira Putri"
+              class="w-full min-w-0 px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="manager-guest-phone" class="block text-xs font-bold uppercase text-slate-600 mb-1">
+              Nomor HP / WhatsApp
+            </label>
+            <input
+              type="text"
+              id="manager-guest-phone"
+              required
+              placeholder="Contoh: 081234567890"
+              class="w-full min-w-0 px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="manager-base-url" class="block text-xs font-bold uppercase text-slate-600 mb-1">
+              Link Dasar Undangan
+            </label>
+            <input
+              type="text"
+              id="manager-base-url"
+              value="https://liza-studie.github.io/asasliza/"
+              class="w-full min-w-0 px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm bg-peach/10"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full btn-berry font-bold py-3 rounded-xl shadow-sm"
+          >
+            Simpan ke Daftar Tamu
+          </button>
+        </form>
+
+        <p id="manager-toast" class="text-xs font-semibold text-emerald-600 hidden"></p>
+      </div>
+
+      <!-- Tamu Tersimpan -->
+      <div class="theme-card p-5 sm:p-7 rounded-3xl space-y-4">
+        <h3 id="saved-guests-heading" class="text-lg sm:text-xl font-bold text-slate-900">
+          Tamu Tersimpan (0)
+        </h3>
+        <div id="saved-guests-list" class="space-y-3"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal PIN Admin -->
+  <div
+    id="admin-pin-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Verifikasi PIN Admin"
+  >
+    <div class="theme-card max-w-sm w-full p-6 rounded-3xl space-y-4">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-lg font-bold text-slate-900">Akses Khusus Admin</h3>
+        <button
+          id="close-pin-modal"
+          type="button"
+          aria-label="Tutup Modal PIN"
+          class="w-8 h-8 rounded-full bg-peach/40 text-slate-800 font-bold text-xs flex items-center justify-center hover:bg-peach/70 transition"
+        >
+          ✕
+        </button>
+      </div>
+      <p class="text-xs text-slate-600">
+        Masukkan PIN admin untuk membuka halaman Daftar Tamu Undangan.
+      </p>
+      <form id="admin-pin-form" class="space-y-3">
+        <input
+          type="password"
+          id="admin-pin-input"
+          required
+          autocomplete="off"
+          placeholder="Masukkan PIN admin"
+          class="w-full px-4 py-2.5 rounded-xl border border-peach focus:outline-none focus:border-berry text-sm"
+        />
+        <p id="admin-pin-error" class="text-xs font-semibold text-rose-600 hidden">
+          PIN salah. Coba periksa kembali.
+        </p>
+        <button
+          type="submit"
+          class="w-full btn-berry font-bold py-2.5 rounded-xl text-sm shadow-sm"
+        >
+          Masuk Mode Admin
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Preview Foto (Lightbox) -->
+  <div
+    id="photo-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Preview Foto"
+  >
+    <div class="relative max-w-2xl w-full bg-white rounded-3xl p-3 sm:p-4 shadow-2xl space-y-3">
+      <button
+        id="close-photo-modal"
+        type="button"
+        aria-label="Tutup Preview Foto"
+        class="btn-berry w-9 h-9 rounded-full font-bold text-sm flex items-center justify-center ml-auto"
+      >
+        ✕
+      </button>
+      <div class="overflow-hidden rounded-2xl bg-peach/20 max-h-[75dvh] flex items-center justify-center">
+        <img
+          id="photo-modal-img"
+          src=""
+          alt=""
+          class="max-h-[72dvh] w-auto max-w-full object-contain"
+        />
+      </div>
+      <p id="photo-modal-caption" class="text-center text-xs sm:text-sm font-semibold text-slate-700 pb-1"></p>
+    </div>
+  </div>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Main Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      if (window.AOS) {
+        AOS.init({ duration: 800, once: true });
+      }
+
+      // 1. BUKA SAMPUL & KONTROL AUDIO (LOOP INTRO)
+      const coverSection = document.getElementById("cover-section");
+      const openBtn = document.getElementById("open-invitation");
+      const mainBody = document.getElementById("main-body");
+      const bgMusic = document.getElementById("bg-music");
+      const audioToggle = document.getElementById("audio-toggle");
+      const audioIcon = document.getElementById("audio-icon");
+      const INTRO_START_SEC = 0;
+      const INTRO_END_SEC = 33.3;
+      let isPlaying = false;
+
+      if (openBtn && coverSection && mainBody && bgMusic && audioToggle && audioIcon) {
+        bgMusic.addEventListener("error", () => {
+          const fallbackSrc = bgMusic.getAttribute("data-fallback-src");
+          if (fallbackSrc && bgMusic.src !== fallbackSrc) {
+            bgMusic.src = fallbackSrc;
+            bgMusic.load();
+          }
+        });
+
+        bgMusic.addEventListener("timeupdate", () => {
+          if (bgMusic.currentTime >= INTRO_END_SEC) {
+            bgMusic.currentTime = INTRO_START_SEC;
+            if (isPlaying) {
+              bgMusic.play().catch(() => {});
+            }
+          }
+        });
+
+        openBtn.addEventListener("click", () => {
+          coverSection.classList.add("cover-hidden");
+          mainBody.classList.remove("overflow-hidden");
+          audioToggle.classList.remove("hidden");
+
+          bgMusic.currentTime = INTRO_START_SEC;
+          bgMusic
+            .play()
+            .then(() => {
+              isPlaying = true;
+              audioIcon.textContent = "🔊";
+              audioToggle.classList.add("audio-spinning");
+            })
+            .catch((err) => {
+              console.warn("Autoplay dicegah browser:", err);
+            });
+        });
+
+        audioToggle.addEventListener("click", () => {
+          if (isPlaying) {
+            bgMusic.pause();
+            audioIcon.textContent = "🔇";
+            audioToggle.classList.remove("audio-spinning");
+          } else {
+            if (bgMusic.currentTime >= INTRO_END_SEC) {
+              bgMusic.currentTime = INTRO_START_SEC;
+            }
+            bgMusic.play();
+            audioIcon.textContent = "🔊";
+            audioToggle.classList.add("audio-spinning");
+          }
+          isPlaying = !isPlaying;
+        });
+      }
+
+      // 2. COUNTDOWN TIMER & GOOGLE CALENDAR
+      const targetDate = new Date("2026-12-20T18:30:00").getTime();
+
+      const timerInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          clearInterval(timerInterval);
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (daysEl) daysEl.textContent = String(days).padStart(2, "0");
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, "0");
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, "0");
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, "0");
+      }, 1000);
+
+      const calendarLink = document.getElementById("calendar-link");
+      if (calendarLink) {
+        const eventTitle = encodeURIComponent("Sweet Seventeen - Liza Aulia Hanafi");
+        const eventDetails = encodeURIComponent("Acara perayaan ulang tahun Liza Aulia Hanafi.");
+        const eventLocation = encodeURIComponent(
+          "Rumah Liza, Kp. Cilalung (https://maps.app.goo.gl/i2Bq2WuccV8qS2fD6?g_st=aw)"
+        );
+        const eventDates = "20261220T113000Z/20261220T150000Z";
+        calendarLink.href =
+          `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${eventDates}&details=${eventDetails}&location=${eventLocation}`;
+      }
+
+      // 3. COPY TO CLIPBOARD (AMPLOP DIGITAL)
+      const copyBtn = document.getElementById("copy-btn");
+      const accountNumberEl = document.getElementById("account-number");
+      const copyToast = document.getElementById("copy-toast");
+
+      if (copyBtn && accountNumberEl && copyToast) {
+        copyBtn.addEventListener("click", () => {
+          const accountNumber = accountNumberEl.textContent.trim();
+          navigator.clipboard.writeText(accountNumber).then(() => {
+            copyToast.classList.remove("hidden");
+            setTimeout(() => copyToast.classList.add("hidden"), 3000);
+          });
+        });
+      }
+
+      // 4. LINK UNDANGAN, WA ADMIN & RSVP
+      const INVITATION_BASE_URL = "https://liza-studie.github.io/asasliza/";
+      const ADMIN_WHATSAPP_NUMBER = "6285894724746";
+      const ADMIN_PIN = "6210";
+      const RSVP_STORAGE_KEY = "liza_sweet17_guestbook";
+      const GUESTS_STORAGE_KEY = "liza_sweet17_guests";
+
+      function normalizeBaseUrl(baseUrl) {
+        const trimmed = String(baseUrl || "").trim() || INVITATION_BASE_URL;
+        return trimmed.endsWith("/") ? trimmed : `${trimmed}/`;
+      }
+
+      function slugifyName(name) {
+        return String(name || "")
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "") || "tamu";
+      }
+
+      function buildGuestInviteUrl(guestName, guestId = "", baseUrl = INVITATION_BASE_URL) {
+        const cleanName = String(guestName || "").trim();
+        const cleanBase = normalizeBaseUrl(baseUrl);
+        if (!cleanName) return cleanBase;
+        const params = new URLSearchParams();
+        if (guestId) params.set("id", guestId);
+        params.set("to", cleanName);
+        return `${cleanBase}?${params.toString()}`;
+      }
+      window.buildGuestInviteUrl = buildGuestInviteUrl;
+
+      function loadLocalStorageArray(key) {
+        try {
+          const raw = localStorage.getItem(key);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function saveLocalStorageArray(key, list) {
+        try {
+          localStorage.setItem(key, JSON.stringify(list));
+        } catch {
+          // Abaikan jika storage tidak tersedia
+        }
+      }
+
+      function buildAdminWhatsAppUrl({ name, status, message }) {
+        const cleanPhone = ADMIN_WHATSAPP_NUMBER.replace(/[^0-9]/g, "");
+        const text = [
+          "🎉 *Konfirmasi Kehadiran Sweet Seventeen* 🎉",
+          "Acara: *Liza Aulia Hanafi*",
+          "",
+          "Halo Admin, ada tamu yang baru saja mengisi konfirmasi undangan:",
+          `• *Nama:* ${name}`,
+          `• *Status:* ${status}`,
+          `• *Ucapan & Doa:* "${message}"`,
+          "",
+          "Terima kasih banyak atas perhatian dan doanya! 🙏✨",
+        ].join("\n");
+
+        return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+      }
+
+      const rsvpForm = document.getElementById("rsvp-form");
+      const submitBtn = rsvpForm ? rsvpForm.querySelector('button[type="submit"]') : null;
+      const guestbookList = document.getElementById("guestbook-list");
+      const guestNameEl = document.getElementById("guest-name");
+      const guestIdInput = document.getElementById("rsvp-guest-id");
+      const guestNameInput = document.getElementById("rsvp-name");
+
+      let entries = [];
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlGuestTo = (urlParams.get("to") || "").trim();
+      const urlGuestId = (urlParams.get("id") || "").trim();
+
+      function applyGuestToInvitation(name, id = "") {
+        if (id && guestIdInput) {
+          guestIdInput.value = id;
+        }
+        if (name && guestNameEl) {
+          guestNameEl.textContent = name;
+        }
+        if (name && guestNameInput) {
+          guestNameInput.value = name;
+        }
+      }
+
+      if (urlGuestId || urlGuestTo) {
+        applyGuestToInvitation(urlGuestTo, urlGuestId);
+      }
+
+      function escapeHTML(str) {
+        return String(str).replace(/[&<>'"]/g, (tag) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "'": "&#39;",
+          '"': "&quot;",
+        }[tag]));
+      }
+
+      function renderGuestbook(items) {
+        if (!guestbookList) return;
+        guestbookList.innerHTML = "";
+
+        if (!items || items.length === 0) {
+          guestbookList.innerHTML = `<p class="text-center text-xs text-slate-400">Belum ada ucapan. Jadilah yang pertama!</p>`;
+          return;
+        }
+
+        items.forEach((item) => {
+          const badgeColor =
+            item.status === "Hadir"
+              ? "bg-emerald-100 text-emerald-700"
+              : "bg-rose-100 text-rose-700";
+
+          const card = document.createElement("div");
+          card.className = "theme-card p-4 rounded-2xl space-y-1";
+          card.innerHTML = `
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <span class="font-bold text-sm text-slate-800">${escapeHTML(item.name)}</span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full shrink-0 ${badgeColor}">${escapeHTML(item.status)}</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">${escapeHTML(item.message)}</p>
+          `;
+          guestbookList.appendChild(card);
+        });
+      }
+
+      async function loadInitialRsvp() {
+        const isGitHubPages = window.location.hostname.endsWith("github.io");
+        if (isGitHubPages) {
+          entries = loadLocalStorageArray(RSVP_STORAGE_KEY);
+          renderGuestbook(entries);
+          return;
+        }
+
+        try {
+          const queryString = window.location.search || "";
+          const res = await fetch(`rsvp.php${queryString}`);
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+          }
+          const text = await res.text();
+          const data = JSON.parse(text);
+
+          if (data && data.ok) {
+            if (data.guest && data.guest.name && guestNameEl) {
+              guestNameEl.textContent = data.guest.name;
+              if (data.guest.name !== "Tamu Undangan" && guestNameInput && !guestNameInput.value) {
+                guestNameInput.value = data.guest.name;
+              }
+            }
+            if (data.guest && data.guest.id && guestIdInput) {
+              guestIdInput.value = data.guest.id;
+            }
+            entries = Array.isArray(data.entries) ? data.entries : [];
+          }
+        } catch (err) {
+          console.warn("Mode fallback tanpa rsvp.php:", err.message);
+          entries = loadLocalStorageArray(RSVP_STORAGE_KEY);
+        }
+        renderGuestbook(entries);
+      }
+
+      if (rsvpForm && submitBtn) {
+        rsvpForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const payload = {
+            guest_id: guestIdInput ? guestIdInput.value.trim() || null : null,
+            name: guestNameInput ? guestNameInput.value.trim() : "",
+            status: document.getElementById("rsvp-status").value,
+            message: document.getElementById("rsvp-message").value.trim(),
+          };
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Mengirim...";
+
+          const isGitHubPages = window.location.hostname.endsWith("github.io");
+
+          try {
+            let added = false;
+
+            if (!isGitHubPages) {
+              try {
+                const res = await fetch("rsvp.php", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(payload),
+                });
+                const text = await res.text();
+                const result = JSON.parse(text);
+
+                if (res.ok && result && result.ok && result.entry) {
+                  entries.unshift(result.entry);
+                  added = true;
+                }
+              } catch {
+                // Jika rsvp.php tidak tersedia / bukan JSON, lanjut ke fallback lokal
+              }
+            }
+
+            if (!added) {
+              entries.unshift({
+                name: payload.name,
+                status: payload.status,
+                message: payload.message,
+              });
+              saveLocalStorageArray(RSVP_STORAGE_KEY, entries);
+            }
+
+            renderGuestbook(entries);
+            document.getElementById("rsvp-message").value = "";
+
+            if (payload.status === "Hadir" && ADMIN_WHATSAPP_NUMBER.replace(/[^0-9]/g, "")) {
+              const waUrl = buildAdminWhatsAppUrl(payload);
+              window.open(waUrl, "_blank", "noopener,noreferrer");
+            }
+          } catch (err) {
+            console.error(err);
+            alert(err.message || "Terjadi kendala saat mengirim ucapan.");
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Kirim Ucapan";
+          }
+        });
+      }
+
+      // 5. PANEL DAFTAR TAMU UNDANGAN (DIKUNCI PIN ADMIN)
+      const invitationView = document.getElementById("invitation-view");
+      const guestManagerView = document.getElementById("guest-manager-view");
+      const openManagerBtn = document.getElementById("open-guest-manager-btn");
+      const backToInvitationBtn = document.getElementById("back-to-invitation-btn");
+      const lockAdminBtn = document.getElementById("lock-admin-btn");
+      const pinModal = document.getElementById("admin-pin-modal");
+      const closePinModalBtn = document.getElementById("close-pin-modal");
+      const pinForm = document.getElementById("admin-pin-form");
+      const pinInput = document.getElementById("admin-pin-input");
+      const pinError = document.getElementById("admin-pin-error");
+      const managerForm = document.getElementById("guest-manager-form");
+      const managerNameInput = document.getElementById("manager-guest-name");
+      const managerPhoneInput = document.getElementById("manager-guest-phone");
+      const managerBaseUrlInput = document.getElementById("manager-base-url");
+      const managerToast = document.getElementById("manager-toast");
+      const savedGuestsHeading = document.getElementById("saved-guests-heading");
+      const savedGuestsList = document.getElementById("saved-guests-list");
+
+      let isAdminUnlocked = false;
+      let savedGuests = loadLocalStorageArray(GUESTS_STORAGE_KEY);
+
+      function openPinModal() {
+        if (!pinModal || !pinInput) return;
+        if (pinError) pinError.classList.add("hidden");
+        pinInput.value = "";
+        pinModal.classList.remove("hidden");
+        pinModal.classList.add("flex");
+        pinInput.focus();
+      }
+
+      function closePinModal() {
+        if (!pinModal) return;
+        pinModal.classList.add("hidden");
+        pinModal.classList.remove("flex");
+      }
+
+      function showGuestManager() {
+        if (!isAdminUnlocked) {
+          openPinModal();
+          return;
+        }
+        renderSavedGuests();
+        if (invitationView) invitationView.classList.add("hidden");
+        if (guestManagerView) guestManagerView.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showInvitation() {
+        if (guestManagerView) guestManagerView.classList.add("hidden");
+        if (invitationView) invitationView.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function lockAdminMode() {
+        isAdminUnlocked = false;
+        showInvitation();
+      }
+
+      function showManagerToast(msg) {
+        if (!managerToast) return;
+        managerToast.textContent = msg;
+        managerToast.classList.remove("hidden");
+        setTimeout(() => managerToast.classList.add("hidden"), 2500);
+      }
+
+      function formatWaPhone(phone) {
+        let digits = String(phone || "").replace(/[^0-9]/g, "");
+        if (digits.startsWith("0")) {
+          digits = `62${digits.slice(1)}`;
+        }
+        return digits;
+      }
+
+      function renderSavedGuests() {
+        if (!savedGuestsList) return;
+        if (savedGuestsHeading) {
+          savedGuestsHeading.textContent = `Tamu Tersimpan (${savedGuests.length})`;
+        }
+
+        savedGuestsList.innerHTML = "";
+        if (savedGuests.length === 0) {
+          savedGuestsList.innerHTML = `<p class="text-xs text-slate-400 text-center py-2">Belum ada tamu tersimpan.</p>`;
+          return;
+        }
+
+        const currentBaseUrl = managerBaseUrlInput ? managerBaseUrlInput.value : INVITATION_BASE_URL;
+
+        savedGuests.forEach((guest, index) => {
+          const inviteLink = buildGuestInviteUrl(guest.name, guest.id, currentBaseUrl);
+          const waPhone = formatWaPhone(guest.phone);
+          const waMessage = encodeURIComponent(
+            `Halo ${guest.name}, kamu diundang ke acara Sweet Seventeen Liza Aulia Hanafi.\nBuka undangan di sini:\n${inviteLink}`
+          );
+          const waHref = waPhone ? `https://wa.me/${waPhone}?text=${waMessage}` : "#";
+
+          const itemCard = document.createElement("div");
+          itemCard.className =
+            "rounded-2xl border border-peach bg-peach/15 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3";
+
+          itemCard.innerHTML = `
+            <div class="space-y-0.5 min-w-0">
+              <p class="font-bold text-sm text-slate-900">${escapeHTML(guest.name)}</p>
+              <p class="text-xs text-slate-600">No: ${escapeHTML(guest.phone)}</p>
+              <p class="text-xs text-slate-500 break-all">Link: ${escapeHTML(inviteLink)}</p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap shrink-0">
+              <button
+                type="button"
+                data-action="copy"
+                data-link="${escapeHTML(inviteLink)}"
+                class="px-3 py-1.5 rounded-full text-xs font-bold border border-berry text-berry bg-white hover:bg-peach/30 transition"
+              >
+                Salin Link
+              </button>
+              <a
+                href="${waHref}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3 py-1.5 rounded-full text-xs font-bold bg-berry text-white hover:bg-berryDark transition"
+              >
+                Kirim WA
+              </a>
+              <button
+                type="button"
+                data-action="open"
+                data-index="${index}"
+                class="px-3 py-1.5 rounded-full text-xs font-bold bg-peach text-slate-900 hover:brightness-95 transition"
+              >
+                Buka →
+              </button>
+              <button
+                type="button"
+                data-action="delete"
+                data-index="${index}"
+                class="px-3 py-1.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700 hover:bg-rose-200 transition"
+              >
+                Hapus
+              </button>
+            </div>
+          `;
+
+          savedGuestsList.appendChild(itemCard);
+        });
+      }
+
+      if (openManagerBtn) {
+        openManagerBtn.addEventListener("click", showGuestManager);
+      }
+
+      if (closePinModalBtn) {
+        closePinModalBtn.addEventListener("click", closePinModal);
+      }
+
+      if (pinModal) {
+        pinModal.addEventListener("click", (e) => {
+          if (e.target === pinModal) {
+            closePinModal();
+          }
+        });
+      }
+
+      if (pinForm && pinInput) {
+        pinForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          if (pinInput.value.trim() === ADMIN_PIN) {
+            isAdminUnlocked = true;
+            closePinModal();
+            showGuestManager();
+          } else if (pinError) {
+            pinError.classList.remove("hidden");
+          }
+        });
+      }
+
+      if (lockAdminBtn) {
+        lockAdminBtn.addEventListener("click", lockAdminMode);
+      }
+
+      if (backToInvitationBtn) {
+        backToInvitationBtn.addEventListener("click", showInvitation);
+      }
+
+      if (managerBaseUrlInput) {
+        managerBaseUrlInput.addEventListener("input", renderSavedGuests);
+      }
+
+      if (managerForm) {
+        managerForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          if (!isAdminUnlocked) {
+            openPinModal();
+            return;
+          }
+          const name = managerNameInput ? managerNameInput.value.trim() : "";
+          const phone = managerPhoneInput ? managerPhoneInput.value.trim() : "";
+          if (!name || !phone) return;
+
+          const randomNum = Math.floor(100 + Math.random() * 900);
+          const newGuest = {
+            id: `${slugifyName(name)}-${randomNum}`,
+            name,
+            phone,
+          };
+
+          savedGuests.unshift(newGuest);
+          saveLocalStorageArray(GUESTS_STORAGE_KEY, savedGuests);
+          renderSavedGuests();
+
+          if (managerNameInput) managerNameInput.value = "";
+          if (managerPhoneInput) managerPhoneInput.value = "";
+          showManagerToast("✅ Tamu berhasil disimpan ke daftar tamu.");
+        });
+      }
+
+      if (savedGuestsList) {
+        savedGuestsList.addEventListener("click", (e) => {
+          if (!isAdminUnlocked) {
+            openPinModal();
+            return;
+          }
+          const btn = e.target.closest("button[data-action]");
+          if (!btn) return;
+
+          const action = btn.getAttribute("data-action");
+          if (action === "copy") {
+            const link = btn.getAttribute("data-link") || "";
+            if (link && navigator.clipboard) {
+              navigator.clipboard.writeText(link).then(() => {
+                showManagerToast("✅ Link undangan berhasil disalin.");
+              });
+            }
+            return;
+          }
+
+          const idx = Number(btn.getAttribute("data-index"));
+          const targetGuest = savedGuests[idx];
+          if (!targetGuest) return;
+
+          if (action === "open") {
+            applyGuestToInvitation(targetGuest.name, targetGuest.id);
+            showInvitation();
+          } else if (action === "delete") {
+            savedGuests.splice(idx, 1);
+            saveLocalStorageArray(GUESTS_STORAGE_KEY, savedGuests);
+            renderSavedGuests();
+            showManagerToast("🗑️ Tamu dihapus dari daftar.");
+          }
+        });
+      }
+
+      renderSavedGuests();
+
+      // 6. PREVIEW FOTO SAAT DIPENCET (LIGHTBOX)
+      const galleryImgs = document.querySelectorAll(".gallery-img");
+      const photoModal = document.getElementById("photo-modal");
+      const photoModalImg = document.getElementById("photo-modal-img");
+      const photoModalCaption = document.getElementById("photo-modal-caption");
+      const closePhotoModalBtn = document.getElementById("close-photo-modal");
+
+      function openPhotoModal(imgEl) {
+        if (!photoModal || !photoModalImg || !imgEl) return;
+        photoModalImg.src = imgEl.currentSrc || imgEl.src;
+        photoModalImg.alt = imgEl.alt || "Foto Galeri";
+        if (photoModalCaption) {
+          photoModalCaption.textContent = imgEl.alt || "";
+        }
+        photoModal.classList.remove("hidden");
+        photoModal.classList.add("flex");
+      }
+
+      function closePhotoModal() {
+        if (!photoModal || !photoModalImg) return;
+        photoModal.classList.add("hidden");
+        photoModal.classList.remove("flex");
+        photoModalImg.src = "";
+      }
+
+      galleryImgs.forEach((img) => {
+        img.addEventListener("click", () => openPhotoModal(img));
+      });
+
+      if (closePhotoModalBtn) {
+        closePhotoModalBtn.addEventListener("click", closePhotoModal);
+      }
+
+      if (photoModal) {
+        photoModal.addEventListener("click", (e) => {
+          if (e.target === photoModal) {
+            closePhotoModal();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          if (pinModal && !pinModal.classList.contains("hidden")) {
+            closePinModal();
+          }
+          if (photoModal && !photoModal.classList.contains("hidden")) {
+            closePhotoModal();
+          }
+        }
+      });
+
+      await loadInitialRsvp();
+    });
+  </script>
+</body>
+</html>
